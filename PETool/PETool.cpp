@@ -173,6 +173,7 @@ int check_if_pe(const char* filePath) {
     FILE* pFile = fopen(filePath, "rb");
 
     if (pFile == NULL) {
+        printf("open file failed\n");
         return -1;
     }
 
