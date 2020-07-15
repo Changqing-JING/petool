@@ -185,7 +185,7 @@ int check_if_pe(const char* filePath) {
     unsigned char* pByte = (unsigned char*)malloc(fileSize);
 
     if (pByte != NULL && fileSize > sizeof(_IMAGE_DOS_HEADER)) {
-        fread(pByte, fileSize, 1, pFile);
+        fread(pByte, 1, fileSize, pFile);
         _IMAGE_DOS_HEADER* dosHeader = (_IMAGE_DOS_HEADER*)pByte;
 
 
