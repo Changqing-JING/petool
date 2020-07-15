@@ -138,12 +138,23 @@ void decode_image_file_header(_IMAGE_NT_HEADERS* nt_header) {
 
     _IMAGE_OPTIONAL_HEADER* optional_header = &nt_header->OptionalHeader;
 
-    if (optional_header->Magic == IMAGE_NT_OPTIONAL_HDR32_MAGIC) {
-        printf("32 bit\n");
+    switch (optional_header->Magic)
+    {
+       case(IMAGE_NT_OPTIONAL_HDR32_MAGIC): {
+          printf("32 bit\n");
+          break;
+       }
+
+       case(IMAGE_NT_OPTIONAL_HDR64_MAGIC): {
+           printf("64 bit\n");
+           break;
+       }
+        
+        default:
+           break;
     }
-    else if (optional_header->Magic == IMAGE_NT_OPTIONAL_HDR64_MAGIC) {
-        printf("64 bit\n");
-    }
+
+    
 
     IMAGE_SECTION_HEADER* section_header = IMAGE_FIRST_SECTION(nt_header);
 
