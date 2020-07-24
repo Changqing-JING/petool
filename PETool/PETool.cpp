@@ -167,6 +167,9 @@ void decode_image_file_header(_IMAGE_NT_HEADERS* nt_header) {
         DWORD p_raw_data = sh->PointerToRawData;
         DWORD Characteristics = sh->Characteristics;
 
+        printf("-----------");
+        printf("section name %s, v_size %d, raw_size %d \n", name, v_size, size_raw_data);
+
 
     }
 
